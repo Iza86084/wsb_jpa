@@ -23,13 +23,18 @@ public class DoctorEntity {
 
 	private String email;
 
-	@Column(nullable = false)
+	@Column(nullable = false, unique = true)
 	private String doctorNumber;
 
 	@Column(nullable = false)
 	@Enumerated(EnumType.STRING)
 	private Specialization specialization;
 
+	@OneToOne
+	@JoinColumn(name = "address_id", referencedColumnName = "id", nullable = false)
+	private AddressEntity address;
+
+	// Getters and Setters
 	public Long getId() {
 		return id;
 	}
@@ -86,4 +91,11 @@ public class DoctorEntity {
 		this.specialization = specialization;
 	}
 
+	public AddressEntity getAddress() {
+		return address;
+	}
+
+	public void setAddress(AddressEntity address) {
+		this.address = address;
+	}
 }

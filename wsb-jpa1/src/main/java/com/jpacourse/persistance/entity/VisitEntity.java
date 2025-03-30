@@ -1,7 +1,6 @@
 package com.jpacourse.persistance.entity;
 
 import java.time.LocalDateTime;
-
 import jakarta.persistence.*;
 
 @Entity
@@ -16,6 +15,20 @@ public class VisitEntity {
 
 	@Column(nullable = false)
 	private LocalDateTime time;
+
+	@ManyToOne
+	@JoinColumn(name = "patient_id", referencedColumnName = "id", nullable = false)
+	private PatientEntity patient;
+
+	@ManyToOne
+	@JoinColumn(name = "doctor_id", referencedColumnName = "id", nullable = false)
+	private DoctorEntity doctor;
+
+	@OneToOne
+	@JoinColumn(name = "treatment_id", referencedColumnName = "id")
+	private MedicalTreatmentEntity medicalTreatment;
+
+	// Getters and Setters
 
 	public Long getId() {
 		return id;
@@ -41,4 +54,28 @@ public class VisitEntity {
 		this.time = time;
 	}
 
+	public PatientEntity getPatient() {
+		return patient;
+	}
+
+	public void setPatient(PatientEntity patient) {
+		this.patient = patient;
+	}
+
+	public DoctorEntity getDoctor() {
+		return doctor;
+	}
+
+	public void setDoctor(DoctorEntity doctor) {
+		this.doctor = doctor;
+	}
+
+	public MedicalTreatmentEntity getMedicalTreatment() {
+		return medicalTreatment;
+	}
+
+	public void setMedicalTreatment(MedicalTreatmentEntity medicalTreatment) {
+		this.medicalTreatment = medicalTreatment;
+	}
 }
+

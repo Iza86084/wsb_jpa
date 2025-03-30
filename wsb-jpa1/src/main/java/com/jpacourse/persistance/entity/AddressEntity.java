@@ -1,7 +1,7 @@
 package com.jpacourse.persistance.entity;
 
-
 import jakarta.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "ADDRESS")
@@ -12,12 +12,15 @@ public class AddressEntity {
 	private Long id;
 
 	private String city;
-
 	private String addressLine1;
-
 	private String addressLine2;
-
 	private String postalCode;
+
+	@OneToOne(mappedBy = "address", cascade = CascadeType.ALL)
+	private DoctorEntity doctor;
+
+	@OneToOne(mappedBy = "address", cascade = CascadeType.ALL)
+	private PatientEntity patient;
 
 	public Long getId() {
 		return id;
@@ -59,4 +62,19 @@ public class AddressEntity {
 		this.postalCode = postalCode;
 	}
 
+	public DoctorEntity getDoctor() {
+		return doctor;
+	}
+
+	public void setDoctor(DoctorEntity doctor) {
+		this.doctor = doctor;
+	}
+
+	public PatientEntity getPatient() {
+		return patient;
+	}
+
+	public void setPatient(PatientEntity patient) {
+		this.patient = patient;
+	}
 }

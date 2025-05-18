@@ -25,3 +25,4 @@ public interface Dao<T, K extends Serializable> {
 
     boolean exists(K id);
 }
+

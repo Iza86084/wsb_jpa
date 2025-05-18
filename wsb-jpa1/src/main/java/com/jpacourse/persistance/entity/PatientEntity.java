@@ -98,3 +98,7 @@ public class PatientEntity {
 		this.address = address;
 	}
 }
+
+@OneToMany(mappedBy = "patient", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+@Fetch(FetchMode.SELECT)
+private List<VisitEntity> visits;

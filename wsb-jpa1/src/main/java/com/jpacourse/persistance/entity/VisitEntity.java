@@ -28,7 +28,7 @@ public class VisitEntity {
 	@JoinColumn(name = "treatment_id", referencedColumnName = "id")
 	private MedicalTreatmentEntity medicalTreatment;
 
-	// Getters and Setters
+
 
 	public Long getId() {
 		return id;

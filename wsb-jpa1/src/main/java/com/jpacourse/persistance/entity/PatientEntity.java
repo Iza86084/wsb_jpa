@@ -32,7 +32,7 @@ public class PatientEntity {
 	@JoinColumn(name = "address_id", referencedColumnName = "id")
 	private AddressEntity address;
 
-	// Getters and Setters
+
 
 	public Long getId() {
 		return id;

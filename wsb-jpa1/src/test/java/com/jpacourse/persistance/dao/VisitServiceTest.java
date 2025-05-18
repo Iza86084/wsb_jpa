@@ -18,7 +18,7 @@ public class VisitServiceTest {
 
     @Test
     void testFindAllVisitsByPatientId() {
-        Long patientId = 1L; // Replace with valid patient ID from your dataset
+        Long patientId = 1L;
         List<VisitEntity> visits = visitService.findVisitsByPatientId(patientId);
 
         assertNotNull(visits);
